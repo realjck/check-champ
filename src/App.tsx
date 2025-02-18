@@ -29,7 +29,8 @@ function App() {
     toggleProduct, 
     deleteProduct, 
     reorderProducts,
-    toggleTheme 
+    toggleTheme,
+    updateProductCategory
   } = useStore();
 
   useEffect(() => {
@@ -76,17 +77,17 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 px-4 transition-colors duration-200">
       <div className="max-w-3xl mx-auto relative">
-      <button
-        onClick={toggleTheme}
-        className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-200"
-        aria-label="Toggle theme"
-      >
-        {isDarkMode ? (
-          <Moon className="w-6 h-6 text-white" />
-        ) : (
-          <Sun className="w-6 h-6 text-yellow-500" />
-        )}
-      </button>
+        <button
+          onClick={toggleTheme}
+          className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-200"
+          aria-label="Toggle theme"
+        >
+          {isDarkMode ? (
+            <Moon className="w-6 h-6 text-yellow-500" />
+          ) : (
+            <Sun className="w-6 h-6 text-yellow-600" />
+          )}
+        </button>
 
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Shopping List</h1>
         
@@ -139,6 +140,7 @@ function App() {
                   category={categories.find((c) => c.id === product.categoryId)!}
                   onToggle={toggleProduct}
                   onDelete={deleteProduct}
+                  onUpdateCategory={updateProductCategory}
                 />
               ))}
             </div>

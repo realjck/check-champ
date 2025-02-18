@@ -11,6 +11,7 @@ interface ShoppingListState {
   deleteProduct: (id: string) => void;
   reorderProducts: (products: Product[]) => void;
   toggleTheme: () => void;
+  updateProductCategory: (productId: string, categoryId: string) => void;
 }
 
 const defaultCategories: Category[] = [
@@ -59,6 +60,14 @@ export const useStore = create<ShoppingListState>()(
       toggleTheme: () =>
         set((state) => ({
           isDarkMode: !state.isDarkMode,
+        })),
+      updateProductCategory: (productId, categoryId) =>
+        set((state) => ({
+          products: state.products.map((product) =>
+            product.id === productId
+              ? { ...product, categoryId }
+              : product
+          ),
         })),
     }),
     {
