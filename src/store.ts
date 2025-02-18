@@ -31,14 +31,17 @@ export const useStore = create<ShoppingListState>()(
       addProduct: (name, categoryId) =>
         set((state) => ({
           products: [
-            ...state.products,
             {
               id: crypto.randomUUID(),
               name,
               categoryId,
               purchased: false,
-              order: state.products.length,
+              order: 0,
             },
+            ...state.products.map((product) => ({
+              ...product,
+              order: product.order + 1,
+            })),
           ],
         })),
       toggleProduct: (id) =>
