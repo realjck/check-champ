@@ -18,6 +18,8 @@ import { Plus, Moon, Sun } from 'lucide-react';
 import { useStore } from './store';
 import { ProductItem } from './components/ProductItem';
 import logo from './assets/images/logo.png';
+import { restrictToFirstScrollableAncestor } from '@dnd-kit/modifiers';
+
 
 
 function App() {
@@ -126,6 +128,7 @@ function App() {
           sensors={sensors}
           collisionDetection={closestCenter}
           onDragEnd={handleDragEnd}
+          modifiers={[restrictToFirstScrollableAncestor]}
         >
           <SortableContext
             items={sortedProducts}
