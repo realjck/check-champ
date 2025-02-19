@@ -10,8 +10,7 @@ export function DeleteConfirmation({ isOpen, onClose, onConfirm }: Readonly<Dele
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm w-full z-50">
-        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Confirm Deletion</h2>
-        <p className="mb-6 text-gray-700 dark:text-gray-300">Are you sure you want to delete this item?</p>
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Confirm Deletion&nbsp;?</h2>
         <div className="flex justify-end gap-4">
           <button
             onClick={onClose}

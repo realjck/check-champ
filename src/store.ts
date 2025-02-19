@@ -15,11 +15,11 @@ interface ShoppingListState {
 }
 
 const defaultCategories: Category[] = [
-  { id: '1', name: '', color: 'bg-green-100 dark:bg-green-900/70 dark:text-green-100' },
-  { id: '2', name: '', color: 'bg-blue-100 dark:bg-blue-900/70 dark:text-blue-100' },
-  { id: '3', name: '', color: 'bg-red-100 dark:bg-red-900/70 dark:text-red-100' },
-  { id: '4', name: '', color: 'bg-yellow-100 dark:bg-amber-900/70 dark:text-amber-100' },
-  { id: '5', name: '', color: 'bg-purple-100 dark:bg-purple-900/70 dark:text-purple-100' },
+  { id: '1', name: '', color: 'bg-green-200 dark:bg-green-900 dark:text-green-100' },
+  { id: '2', name: '', color: 'bg-blue-200 dark:bg-blue-900 dark:text-blue-100' },
+  { id: '3', name: '', color: 'bg-red-200 dark:bg-red-900 dark:text-red-100' },
+  { id: '4', name: '', color: 'bg-yellow-200 dark:bg-amber-900 dark:text-amber-100' },
+  { id: '5', name: '', color: 'bg-purple-200 dark:bg-purple-900 dark:text-purple-100' },
 ];
 
 export const useStore = create<ShoppingListState>()(

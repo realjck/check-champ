@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Trash2, GripVertical } from 'lucide-react';
@@ -46,11 +46,14 @@ export function ProductItem({
     setNodeRef,
     transform,
     transition,
+    isDragging,
   } = useSortable({ id: product.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+    position: isDragging ? 'relative' : 'static',
+    zIndex: isDragging ? 999 : 'auto',
   };
 
   const getDotColor = (colorClass: string) => {
@@ -66,8 +69,7 @@ export function ProductItem({
         style={style}
         className={clsx(
           'flex items-center p-4 rounded-lg mb-2 shadow-sm transition-colors duration-200',
-          category.color,
-          product.purchased && 'opacity-60'
+          !product.purchased && category.color
         )}
       >
         <div {...listeners} {...attributes} className="cursor-grab">
@@ -77,7 +79,7 @@ export function ProductItem({
           type="checkbox"
           checked={product.purchased}
           onChange={() => onToggle(product.id)}
-          className="ml-2 h-5 w-5 rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800"
+          className="ml-3 h-7 w-7 rounded border-gray-300 dark:border-gray-600 accent-black dark:accent-white"
         />
         <span
           className={clsx(
@@ -108,7 +110,7 @@ export function ProductItem({
                 top: '100%',
               }}
             >
-              <div className="flex flex-row"> {/* Conteneur pour aligner les boutons horizontalement */}
+              <div className="flex flex-row">
                 {categories.map((cat) => (
                   <div
                     key={cat.id}
@@ -137,7 +139,7 @@ export function ProductItem({
           onClick={() => setShowDeleteModal(true)}
           className="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors duration-200"
         >
-          <Trash2 size={18} />
+          <Trash2 size={22} />
         </button>
       </div>
 
