@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.items-center {
+    touch-action: none; /* Permet le glissement sur mobile */
+}

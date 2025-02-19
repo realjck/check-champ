@@ -20,7 +20,6 @@ import { ProductItem } from './components/ProductItem';
 
 function App() {
   const [newProductName, setNewProductName] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
   const { 
     products, 
     categories, 
@@ -62,10 +61,9 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newProductName.trim() && selectedCategory) {
-      addProduct(newProductName.trim(), selectedCategory);
+    if (newProductName.trim()) {
+      addProduct(newProductName.trim(), '1'); // '1' est l'ID de la catégorie 1
       setNewProductName('');
-      setSelectedCategory('');
     }
   };
 
@@ -83,14 +81,14 @@ function App() {
           aria-label="Toggle theme"
         >
           {isDarkMode ? (
-            <Moon className="w-6 h-6 text-yellow-500" />
+            <Moon className="w-9 h-9 text-yellow-500" />
           ) : (
-            <Sun className="w-6 h-6 text-yellow-600" />
+            <Sun className="w-9 h-9 text-yellow-600" />
           )}
         </button>
 
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Shopping List
+          CheckChamp
         </h1>
         <div className="hidden">
           <span className="inline-block w-4 h-4 bg-green-500 rounded-full"></span>
@@ -107,27 +105,14 @@ function App() {
               value={newProductName}
               onChange={(e) => setNewProductName(e.target.value)}
               placeholder="Add new item"
-              className="flex-1 p-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="flex-1 min-w-0 p-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="p-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-            >
-              <option value="">Select category</option>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
             <button
               type="submit"
-              disabled={!newProductName.trim() || !selectedCategory}
+              disabled={!newProductName.trim()}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <Plus size={18} />
-              Add
             </button>
           </div>
         </form>

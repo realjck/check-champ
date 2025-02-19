@@ -81,7 +81,7 @@ export function ProductItem({
         />
         <span
           className={clsx(
-            'ml-3 flex-1 transition-colors duration-200',
+            'ml-3 text-xl flex-1 transition-colors duration-200 max-w-[100%] truncate',
             product.purchased && 'line-through text-gray-500 dark:text-gray-400'
           )}
         >
@@ -95,7 +95,7 @@ export function ProductItem({
             title="Click to change category"
           >
             <span className={clsx(
-              'w-2 h-2 rounded-full inline-block',
+              'w-6 h-6 rounded-full inline-block mr-2',
               getDotColor(category.color)
             )} />
             {category.name}
@@ -103,30 +103,32 @@ export function ProductItem({
 
           {isEditingCategory && (
             <div 
-              className="absolute z-10 right-4 mt-1 w-48 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden"
+              className="absolute z-10 right-4 mt-1 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden"
               style={{
                 top: '100%',
               }}
             >
-              {categories.map((cat) => (
-                <div
-                  key={cat.id}
-                  className={clsx(
-                    'flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white',
-                    cat.id === category.id && 'bg-gray-50 dark:bg-gray-600'
-                  )}
-                  onClick={() => {
-                    onUpdateCategory(product.id, cat.id);
-                    setIsEditingCategory(false);
-                  }}
-                >
-                  <span className={clsx(
-                    'w-2 h-2 rounded-full inline-block',
-                    getDotColor(cat.color)
-                  )} />
-                  <span>{cat.name}</span>
-                </div>
-              ))}
+              <div className="flex flex-row"> {/* Conteneur pour aligner les boutons horizontalement */}
+                {categories.map((cat) => (
+                  <div
+                    key={cat.id}
+                    className={clsx(
+                      'flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white',
+                      cat.id === category.id && 'bg-gray-50 dark:bg-gray-600'
+                    )}
+                    onClick={() => {
+                      onUpdateCategory(product.id, cat.id);
+                      setIsEditingCategory(false);
+                    }}
+                  >
+                    <span className={clsx(
+                      'w-6 h-6 rounded-full inline-block',
+                      getDotColor(cat.color)
+                    )} />
+                    <span>{cat.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
