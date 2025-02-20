@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .items-center {
-    touch-action: none; /* Permet le glissement sur mobile */
+    touch-action: pan-y; /* Permet le glissement sur mobile */
 }

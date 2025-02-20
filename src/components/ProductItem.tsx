@@ -72,15 +72,25 @@ export function ProductItem({
           !product.purchased && category.color
         )}
       >
-        <div {...listeners} {...attributes} className="cursor-grab">
+        {/* Conteneur du grip avec pointer-events: all */}
+        <div
+          {...listeners}
+          {...attributes}
+          className="cursor-grab"
+          style={{ pointerEvents: 'all' }} // Capture les événements sur les pixels transparents
+        >
           <GripVertical className="text-gray-600 dark:text-gray-300" />
         </div>
+
+        {/* Checkbox pour marquer le produit comme acheté */}
         <input
           type="checkbox"
           checked={product.purchased}
           onChange={() => onToggle(product.id)}
           className="ml-3 h-7 w-7 rounded border-gray-300 dark:border-gray-600 accent-black dark:accent-white"
         />
+
+        {/* Nom du produit */}
         <span
           className={clsx(
             'ml-3 text-xl flex-1 transition-colors duration-200 max-w-[100%] truncate',
@@ -89,7 +99,8 @@ export function ProductItem({
         >
           {product.name}
         </span>
-        
+
+        {/* Sélecteur de catégorie */}
         <div className="relative" ref={categoryRef}>
           <span
             onClick={() => setIsEditingCategory(true)}
@@ -103,6 +114,7 @@ export function ProductItem({
             {category.name}
           </span>
 
+          {/* Menu déroulant pour changer de catégorie */}
           {isEditingCategory && (
             <div 
               className="absolute z-10 right-4 mt-1 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden"
@@ -134,7 +146,8 @@ export function ProductItem({
             </div>
           )}
         </div>
-        
+
+        {/* Bouton de suppression */}
         <button
           onClick={() => setShowDeleteModal(true)}
           className="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors duration-200"
@@ -143,6 +156,7 @@ export function ProductItem({
         </button>
       </div>
 
+      {/* Modal de confirmation de suppression */}
       <DeleteConfirmation
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
