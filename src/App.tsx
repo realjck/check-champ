@@ -20,8 +20,6 @@ import { ProductItem } from './components/ProductItem';
 import logo from './assets/images/logo.png';
 import { restrictToFirstScrollableAncestor } from '@dnd-kit/modifiers';
 
-
-
 function App() {
   const [newProductName, setNewProductName] = useState('');
   const { 
@@ -79,24 +77,26 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 px-4 transition-colors duration-200">
       <div className="max-w-3xl mx-auto relative">
-        <button
-          onClick={toggleTheme}
-          className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-200"
-          aria-label="Toggle theme"
-        >
-          {isDarkMode ? (
-            <Moon className="w-9 h-9 text-yellow-500" />
-          ) : (
-            <Sun className="w-9 h-9 text-yellow-600" />
-          )}
-        </button>
-
-        <div className="flex items-center mb-6 -mt-3">
-          <img src={logo} alt="Logo" className="w-12 h-12 mr-2" />
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
-            CheckChamp
-          </h1>
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="w-12 h-12 mr-2" />
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+              CheckChamp
+            </h1>
+          </div>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-200"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? (
+              <Moon className="w-9 h-9 text-yellow-500" />
+            ) : (
+              <Sun className="w-9 h-9 text-yellow-600" />
+            )}
+          </button>
         </div>
+
         <div className="hidden">
           <span className="inline-block w-4 h-4 bg-green-500 rounded-full"></span>
           <span className="inline-block w-4 h-4 bg-blue-500 rounded-full"></span>
