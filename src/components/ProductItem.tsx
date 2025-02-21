@@ -77,7 +77,7 @@ export function ProductItem({
           {...listeners}
           {...attributes}
           className="cursor-grab"
-          style={{ pointerEvents: 'all' }} // Capture les événements sur les pixels transparents
+          style={{ pointerEvents: 'all', touchAction: 'none' }} // Capture les événements sur les pixels transparents
         >
           <GripVertical className="h-7 w-7 mr-1 text-gray-600 dark:text-gray-300" />
         </div>
@@ -104,7 +104,7 @@ export function ProductItem({
         <div className="relative" ref={categoryRef}>
           <span
             onClick={() => setIsEditingCategory(true)}
-            className="text-sm mr-1 cursor-pointer hover:underline transition-colors duration-200 flex items-center gap-2"
+            className="text-sm mr-2 cursor-pointer hover:underline transition-colors duration-200 flex items-center gap-2"
             title="Click to change category"
           >
             <span className={clsx(
