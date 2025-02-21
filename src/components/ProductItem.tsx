@@ -128,7 +128,7 @@ export function ProductItem({
                     key={cat.id}
                     className={clsx(
                       'flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white',
-                      cat.id === category.id && 'bg-gray-50 dark:bg-gray-600'
+                      cat.id === category.id && 'bg-gray-100 dark:bg-gray-600'
                     )}
                     onClick={() => {
                       onUpdateCategory(product.id, cat.id);
