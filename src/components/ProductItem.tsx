@@ -68,7 +68,7 @@ export function ProductItem({
         ref={setNodeRef}
         style={style}
         className={clsx(
-          'flex items-center p-4 rounded-lg mb-2 shadow-sm transition-colors duration-200',
+          'flex items-center p-3 rounded-lg mb-2 shadow-sm transition-colors duration-200',
           !product.purchased && category.color
         )}
       >
@@ -79,7 +79,7 @@ export function ProductItem({
           className="cursor-grab"
           style={{ pointerEvents: 'all' }} // Capture les événements sur les pixels transparents
         >
-          <GripVertical className="text-gray-600 dark:text-gray-300" />
+          <GripVertical className="h-7 w-7 mr-1 text-gray-600 dark:text-gray-300" />
         </div>
 
         {/* Checkbox pour marquer le produit comme acheté */}
@@ -87,13 +87,13 @@ export function ProductItem({
           type="checkbox"
           checked={product.purchased}
           onChange={() => onToggle(product.id)}
-          className="ml-3 h-7 w-7 rounded border-gray-300 dark:border-gray-600 accent-black dark:accent-white"
+          className="h-7 w-7 rounded border-gray-300 dark:border-gray-600 accent-black dark:accent-white"
         />
 
         {/* Nom du produit */}
         <span
           className={clsx(
-            'ml-3 text-xl flex-1 transition-colors duration-200 max-w-[100%] truncate',
+            'ml-2 text-xl flex-1 transition-colors duration-200 max-w-[100%] truncate',
             product.purchased && 'line-through text-gray-500 dark:text-gray-400'
           )}
         >
@@ -104,7 +104,7 @@ export function ProductItem({
         <div className="relative" ref={categoryRef}>
           <span
             onClick={() => setIsEditingCategory(true)}
-            className="text-sm mr-4 cursor-pointer hover:underline transition-colors duration-200 flex items-center gap-2"
+            className="text-sm mr-1 cursor-pointer hover:underline transition-colors duration-200 flex items-center gap-2"
             title="Click to change category"
           >
             <span className={clsx(
@@ -117,7 +117,7 @@ export function ProductItem({
           {/* Menu déroulant pour changer de catégorie */}
           {isEditingCategory && (
             <div 
-              className="absolute z-10 right-4 mt-1 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden"
+              className="absolute z-10 right-0 mt-1 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden"
               style={{
                 top: '100%',
               }}
