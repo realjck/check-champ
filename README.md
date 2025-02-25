@@ -7,7 +7,7 @@ Gérez facilement vos listes de courses ou vos listes de tâches.
 
 ### Démo : [checkchamp.pxly.fr](https://checkchamp.pxly.fr)
 
-Utilisable sur mobile en Progressive Web App
+Utilisable sur mobile en Progressive Web App, les données sont stockées dans le Local Storage du navigateur.
 
 ## Utilisation
 
