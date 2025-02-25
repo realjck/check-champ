@@ -93,7 +93,7 @@ export function ProductItem({
         {/* Nom du produit */}
         <span
           className={clsx(
-            'ml-2 text-xl flex-1 transition-colors duration-200 max-w-[100%] truncate',
+            'ml-2 text-xl flex-1 pb-1 -mb-1 transition-colors duration-200 max-w-[100%] truncate',
             product.purchased && 'line-through text-gray-500 dark:text-gray-400'
           )}
         >

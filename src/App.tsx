@@ -105,19 +105,19 @@ function App() {
           <span className="inline-block w-4 h-4 bg-purple-500 rounded-full"></span>
         </div>
         
-        <form onSubmit={handleSubmit} className="mb-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+        <form onSubmit={handleSubmit} className="mb-8 bg-white dark:bg-gray-800 p-4 pb-2 rounded-lg shadow-sm">
           <div className="flex gap-4">
             <input
               type="text"
               value={newProductName}
               onChange={(e) => setNewProductName(e.target.value)}
-              placeholder="Add new item"
-              className="flex-1 text-xl min-w-0 p-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              placeholder="Ajouter..."
+              className="flex-1 text-xl min-w-0 p-2 h-12 -mt-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
             <button
               type="submit"
               disabled={!newProductName.trim()}
-              className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 h-12 -mt-2 rounded hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <Plus size={18} />
             </button>
