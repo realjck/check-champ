@@ -1,6 +1,8 @@
 export type Category = {
   id: string;
   name: string;
+  /** Accessible name, since the visible name may be empty. */
+  label: string;
   color: string;
   dotColor: string;
 };

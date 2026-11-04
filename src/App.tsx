@@ -88,7 +88,7 @@ function App() {
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-200"
-            aria-label="Toggle theme"
+            aria-label={isDarkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
           >
             {isDarkMode ? (
               <Moon className="w-9 h-9 text-yellow-500" />
@@ -105,11 +105,13 @@ function App() {
               value={newProductName}
               onChange={(e) => setNewProductName(e.target.value)}
               placeholder="Ajouter..."
+              aria-label="Nouvel article"
               className="flex-1 text-xl min-w-0 p-2 h-12 -mt-2 border dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
             <button
               type="submit"
               disabled={!newProductName.trim()}
+              aria-label="Ajouter l'article"
               className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 h-12 -mt-2 rounded hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <Plus size={18} />

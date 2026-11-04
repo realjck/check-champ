@@ -70,6 +70,7 @@ export function ProductItem({
         <div
           {...listeners}
           {...attributes}
+          aria-label={`Déplacer ${product.name}`}
           className="cursor-grab"
           style={{ pointerEvents: 'all', touchAction: 'none' }} // Capture les événements sur les pixels transparents
         >
@@ -81,6 +82,7 @@ export function ProductItem({
           type="checkbox"
           checked={product.purchased}
           onChange={() => onToggle(product.id)}
+          aria-label={`Marquer ${product.name} comme acheté`}
           className="h-7 w-7 rounded border-gray-300 dark:border-gray-600 accent-black dark:accent-white"
         />
 
@@ -96,17 +98,21 @@ export function ProductItem({
 
         {/* Sélecteur de catégorie */}
         <div className="relative" ref={categoryRef}>
-          <span
+          <button
+            type="button"
             onClick={() => setIsEditingCategory(true)}
             className="text-sm mr-2 cursor-pointer hover:underline transition-colors duration-200 flex items-center gap-2"
-            title="Click to change category"
+            title="Changer la catégorie"
+            aria-label={`Catégorie ${category.label}, changer la catégorie`}
+            aria-haspopup="true"
+            aria-expanded={isEditingCategory}
           >
             <span className={clsx(
               'w-6 h-6 rounded-full inline-block mr-2',
               category.dotColor
             )} />
             {category.name}
-          </span>
+          </button>
 
           {/* Menu déroulant pour changer de catégorie */}
           {isEditingCategory && (
@@ -118,8 +124,11 @@ export function ProductItem({
             >
               <div className="flex flex-row">
                 {categories.map((cat) => (
-                  <div
+                  <button
+                    type="button"
                     key={cat.id}
+                    aria-label={`Catégorie ${cat.label}`}
+                    aria-pressed={cat.id === category.id}
                     className={clsx(
                       'flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white',
                       cat.id === category.id && 'bg-gray-100 dark:bg-gray-600'
@@ -134,7 +143,7 @@ export function ProductItem({
                       cat.dotColor
                     )} />
                     <span>{cat.name}</span>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -144,6 +153,7 @@ export function ProductItem({
         {/* Bouton de suppression */}
         <button
           onClick={() => setShowDeleteModal(true)}
+          aria-label={`Supprimer ${product.name}`}
           className="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors duration-200"
         >
           <Trash2 size={22} />

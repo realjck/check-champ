@@ -15,11 +15,11 @@ interface ShoppingListState {
 }
 
 const defaultCategories: Category[] = [
-  { id: '1', name: '', color: 'bg-green-200 dark:bg-green-900 dark:text-green-100', dotColor: 'bg-green-500' },
-  { id: '2', name: '', color: 'bg-blue-200 dark:bg-blue-900 dark:text-blue-100', dotColor: 'bg-blue-500' },
-  { id: '3', name: '', color: 'bg-red-200 dark:bg-red-900 dark:text-red-100', dotColor: 'bg-red-500' },
-  { id: '4', name: '', color: 'bg-yellow-200 dark:bg-amber-900 dark:text-amber-100', dotColor: 'bg-yellow-500' },
-  { id: '5', name: '', color: 'bg-purple-200 dark:bg-purple-900 dark:text-purple-100', dotColor: 'bg-purple-500' },
+  { id: '1', name: '', label: 'Vert', color: 'bg-green-200 dark:bg-green-900 dark:text-green-100', dotColor: 'bg-green-500' },
+  { id: '2', name: '', label: 'Bleu', color: 'bg-blue-200 dark:bg-blue-900 dark:text-blue-100', dotColor: 'bg-blue-500' },
+  { id: '3', name: '', label: 'Rouge', color: 'bg-red-200 dark:bg-red-900 dark:text-red-100', dotColor: 'bg-red-500' },
+  { id: '4', name: '', label: 'Jaune', color: 'bg-yellow-200 dark:bg-amber-900 dark:text-amber-100', dotColor: 'bg-yellow-500' },
+  { id: '5', name: '', label: 'Violet', color: 'bg-purple-200 dark:bg-purple-900 dark:text-purple-100', dotColor: 'bg-purple-500' },
 ];
 
 export const useStore = create<ShoppingListState>()(
