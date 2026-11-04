@@ -75,6 +75,14 @@ export const useStore = create<ShoppingListState>()(
     }),
     {
       name: 'shopping-list-storage',
+      version: 1,
+      // Categories are static app config: never persist them so code changes reach every user.
+      partialize: ({ products, isDarkMode }) => ({ products, isDarkMode }),
+      // v0 stored categories too; drop them so the defaults from code are used.
+      migrate: (persisted) => {
+        const { products, isDarkMode } = persisted as Partial<ShoppingListState>;
+        return { products: products ?? [], isDarkMode: isDarkMode ?? false };
+      },
     }
   )
 );
