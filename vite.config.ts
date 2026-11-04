@@ -14,9 +14,11 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,png,ico,svg,woff2}'],
       },
       manifest: {
+        id: '/',
         name: 'CheckChamp',
         short_name: 'CheckChamp',
-        description: 'Organize your life with CheckChamp: manage shopping lists, to-do lists, and more with ease.',
+        lang: 'fr',
+        description: 'Organisez votre quotidien avec CheckChamp : listes de courses, listes de tâches et plus encore.',
         theme_color: '#fa6c08',
         icons: [
           {
