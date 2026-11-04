@@ -8,7 +8,11 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      includeManifestIcons: false,
+      workbox: {
+        // Default only precaches js/css/html; images and fonts are needed offline too.
+        globPatterns: ['**/*.{js,css,html,png,ico,svg,woff2}'],
+      },
       manifest: {
         name: 'CheckChamp',
         short_name: 'CheckChamp',
