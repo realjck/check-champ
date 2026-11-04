@@ -27,7 +27,7 @@ export const useStore = create<ShoppingListState>()(
     (set) => ({
       products: [],
       categories: defaultCategories,
-      isDarkMode: false,
+      isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
       addProduct: (name, categoryId) =>
         set((state) => ({
           products: [

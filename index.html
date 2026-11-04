@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CheckChamp</title>
+    <script>
+      // Apply the theme before first paint to avoid a light flash; mirrors the store default.
+      try {
+        const saved = JSON.parse(localStorage.getItem('shopping-list-storage'))?.state?.isDarkMode;
+        const dark = saved ?? matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      } catch {
+        // Unreadable storage: React applies the theme after mount.
+      }
+    </script>
     <meta name="description" content="Organize your life with CheckChamp: manage shopping lists, to-do lists, and more with ease.">
     <link rel="icon" href="/src/assets/images/favicon.ico" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
