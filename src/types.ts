@@ -2,6 +2,7 @@ export type Category = {
   id: string;
   name: string;
   color: string;
+  dotColor: string;
 };
 
 export type Product = {

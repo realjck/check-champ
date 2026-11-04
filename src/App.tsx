@@ -98,14 +98,6 @@ function App() {
           </button>
         </div>
 
-        <div className="hidden">
-          <span className="inline-block w-4 h-4 bg-green-500 rounded-full"></span>
-          <span className="inline-block w-4 h-4 bg-blue-500 rounded-full"></span>
-          <span className="inline-block w-4 h-4 bg-red-500 rounded-full"></span>
-          <span className="inline-block w-4 h-4 bg-yellow-500 rounded-full"></span>
-          <span className="inline-block w-4 h-4 bg-purple-500 rounded-full"></span>
-        </div>
-        
         <form onSubmit={handleSubmit} className="mb-8 bg-white dark:bg-gray-800 p-4 pb-2 rounded-lg shadow-sm">
           <div className="flex gap-4">
             <input

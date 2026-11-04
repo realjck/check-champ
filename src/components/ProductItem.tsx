@@ -56,12 +56,6 @@ export function ProductItem({
     zIndex: isDragging ? 999 : 'auto',
   };
 
-  const getDotColor = (colorClass: string) => {
-    const baseColor = colorClass.split(' ')[0];
-    const colorName = baseColor.replace(/bg-(\w+)-\d+.*/, '$1');
-    return `bg-${colorName}-500`;
-  };
-
   return (
     <>
       <div
@@ -109,7 +103,7 @@ export function ProductItem({
           >
             <span className={clsx(
               'w-6 h-6 rounded-full inline-block mr-2',
-              getDotColor(category.color)
+              category.dotColor
             )} />
             {category.name}
           </span>
@@ -137,7 +131,7 @@ export function ProductItem({
                   >
                     <span className={clsx(
                       'w-6 h-6 rounded-full inline-block',
-                      getDotColor(cat.color)
+                      cat.dotColor
                     )} />
                     <span>{cat.name}</span>
                   </div>
