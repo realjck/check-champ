@@ -1,7 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.items-center {
-    touch-action: pan-y; /* Permet le glissement sur mobile */
-}

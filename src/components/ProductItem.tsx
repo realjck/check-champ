@@ -62,7 +62,7 @@ export function ProductItem({
         ref={setNodeRef}
         style={style}
         className={clsx(
-          'flex items-center p-3 rounded-lg mb-2 shadow-sm transition-colors duration-200',
+          'flex items-center touch-pan-y p-3 rounded-lg mb-2 shadow-sm transition-colors duration-200',
           !product.purchased && category.color
         )}
       >
