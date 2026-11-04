@@ -17,6 +17,7 @@ import {
 import { Plus, Moon, Sun } from 'lucide-react';
 import { useStore } from './store';
 import { ProductItem } from './components/ProductItem';
+import { EmptyListHint } from './components/EmptyListHint';
 import logo from './assets/images/logo.png';
 import { restrictToFirstScrollableAncestor } from '@dnd-kit/modifiers';
 
@@ -123,6 +124,8 @@ function App() {
             </button>
           </div>
         </form>
+
+        {products.length === 0 && <EmptyListHint />}
 
         <DndContext
           sensors={sensors}
